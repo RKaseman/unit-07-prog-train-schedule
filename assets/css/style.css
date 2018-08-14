@@ -1,0 +1,25 @@
+
+*, html {
+    text-align: center;
+}
+
+header {
+    /* width: 912px; */
+    height: 128px;
+    background: #9acd32;
+    /* text-align: center; */
+    line-height: 128px;
+}
+
+#wrapper {
+    /* width: 912px; */
+    /* text-align: center; */
+    /* margin: auto; */
+    background: red;
+}
+
+body {
+    /* text-align: center; */
+    /* margin: auto; */
+    background: #0055dd;
+}

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trains</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js" integrity="sha256-NLLibs1jQZNnV59vwp+9dMxTdhKAeqKbl3XzgYzQyso=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merienda%7cGaldeano" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        Ode to Sheldon: Train Bizarre
+    </header>
+
+    <div id="wrapper">
+        <div>Add a Train</div>
+        <form>
+            <label for="trainName"></label>
+            <input type="text" id="trainName" name="search" value="" placeholder="select a name">
+            <input id="fullForm" type="submit" value="Update">
+        </form>
+        <div>Schedule</div>
+        <div id="defaultRow">
+            <table id=sched>
+                <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Arrival</th>
+                    <th>Departure</th>
+                    <th>Frequency</th>
+                </tr>
+                <tr>
+                    <td>waiting for entry</td>
+                    <td>waiting for entry</td>
+                    <td>waiting for entry</td>
+                    <td>waiting for entry</td>
+                    <td>waiting for entry</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="assets/javascript/javascript.js"></script>
+
+</body>
+
+</html>
+
