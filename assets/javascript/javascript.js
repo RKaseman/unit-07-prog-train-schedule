@@ -13,39 +13,33 @@ firebase.initializeApp(config);
 
 var name = "";
 var destination = "";
-var arrival = "";
 var departure = "";
 var frequency = "";
 
 $("#sendForm").on("click", function(event) {
-    event.PreventDefault();
+    event.preventDefault();
     name = $("#nameEnter").val().trim();
     destination = $("#destEnter").val().trim();
-    arrival = $("#arrivalEnter").val().trim();
     departure = $("#departEnter").val().trim();
     frequency = $("#freqEnter").val().trim();
-    console.log(this);
-    console.log(name);
-    console.log(destination);
-    console.log(arrival);
-    console.log(departure);
-    console.log(frequency);
+    console.log("name : " + name);
+    console.log("destination : " + destination);
+    console.log("departure : " + departure);
+    console.log("frequency : " + frequency);
 
     firebase.database().ref().push({
         name: name,
         destination: destination,
-        arrival: arrival,
         departure: departure,
         frequency: frequency
     });
 
     firebase.database().ref().on("child_added", function(childSnapshot){
-    console.log(childSnapshot.val());
+        console.log(childSnapshot.val());
+        $("tbody").append("<tr><td>" + childSnapshot.val().name + "</td><td>" + childSnapshot.val().destination + "</td><td>" + childSnapshot.val().departure + "</td><td>" + childSnapshot.val().frequency + "</td></tr>");
+        console.log("this : " + this);
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
-
 });
-
-//     $("#tbody").append("<tr><td>" + childSnapshot.val().name + "</td><td>" + childSnapshot.val().destination + "</td><td>" + childSnapshot.val().arrival + "</td><td>" + childSnapshot.val().departure + "</td><td>" + childSnapshot.val().frequency + "</td></tr>");
 
