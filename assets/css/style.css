@@ -1,12 +1,17 @@
 
-*, html {
+* {
+    text-align: center;
+}
+
+html {
+    min-width: 100%;
     text-align: center;
 }
 
 header {
     /* width: 912px; */
-    height: 128px;
-    background: #9acd32;
+    /* height: 128px; */
+    background: #000032;
     /* text-align: center; */
     line-height: 128px;
 }

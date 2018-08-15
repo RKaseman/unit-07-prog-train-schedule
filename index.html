@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
 <head>
     <meta charset="utf-8">
@@ -9,10 +9,24 @@
 
     <title>Trains</title>
 
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <!-- <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBmeleQU0z3P1C6sbEnlStaE7msi-2JzxM",
+            authDomain: "trains-35781.firebaseapp.com",
+            databaseURL: "https://trains-35781.firebaseio.com",
+            projectId: "trains-35781",
+            storageBucket: "",
+            messagingSenderId: "755160834451"
+        };
+    </script> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js" integrity="sha256-NLLibs1jQZNnV59vwp+9dMxTdhKAeqKbl3XzgYzQyso=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Merienda%7cGaldeano" rel="stylesheet">
 </head>
@@ -26,12 +40,16 @@
     <div id="wrapper">
         <div>Add a Train</div>
         <form>
-            <label for="trainName"></label>
-            <input type="text" id="trainName" name="search" value="" placeholder="select a name">
-            <input id="fullForm" type="submit" value="Update">
+            <label for="trainTable"></label>
+            <input type="text" id="nameEnter" name="search" value="" placeholder="select a name">
+            <input type="text" id="destEnter" name="search" value="" placeholder="select a destination">
+            <input type="text" id="arrivalEnter" name="search" value="" placeholder="select an arrival time">
+            <input type="text" id="departEnter" name="search" value="" placeholder="select a departure time">
+            <input type="text" id="freqEnter" name="search" value="" placeholder="select frequency">
+            <input type="submit" id="fullForm" value="Update">
         </form>
         <div>Schedule</div>
-        <div id="defaultRow">
+        <div id="defaultTableRow">
             <table id=sched>
                 <tr>
                     <th>Train Name</th>
@@ -40,13 +58,15 @@
                     <th>Departure</th>
                     <th>Frequency</th>
                 </tr>
-                <tr>
-                    <td>waiting for entry</td>
-                    <td>waiting for entry</td>
-                    <td>waiting for entry</td>
-                    <td>waiting for entry</td>
-                    <td>waiting for entry</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>(entry)</td>
+                        <td>(entry)</td>
+                        <td>(entry)</td>
+                        <td>(entry)</td>
+                        <td>(entry)</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
