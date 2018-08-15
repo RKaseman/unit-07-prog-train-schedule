@@ -1,30 +1,88 @@
 
 * {
     text-align: center;
+    margin: 16px auto;
 }
 
 html {
+    font-family: Arial, Helvetica, sans-serif;
     min-width: 100%;
-    text-align: center;
+    min-height: 100%;
 }
 
 header {
-    /* width: 912px; */
-    /* height: 128px; */
-    background: #000032;
-    /* text-align: center; */
-    line-height: 128px;
+    width: 75%;
+    background: #557799;
+    border: 1px dashed #000256;
+
+    padding: 16px;
 }
 
-#wrapper {
-    /* width: 912px; */
-    /* text-align: center; */
-    /* margin: auto; */
-    background: red;
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 body {
-    /* text-align: center; */
-    /* margin: auto; */
-    background: #0055dd;
+    background: #bbddff;
 }
+
+div {
+    width: 75%;
+    min-height: 32px;
+    text-align: left;
+
+    border: 1px dashed #000256;
+
+    padding: 2px 16px;
+}
+
+#wrapper {
+    background: #88aacc;
+
+    margin: auto;
+}
+
+input {
+    width: 50%;
+    height: 32px;
+}
+
+label {
+    font-weight: bold;
+}
+
+#sched {
+    width: 95%;
+
+    margin: auto;
+}
+
+#sendForm {
+    width: 74px;
+}
+
+#sendForm:hover {
+    background-color: #6688aa;
+}
+
+#submitButton {
+    text-align: center;
+}
+
+tr, td {
+    margin: auto;
+    height: 32px;
+    border-bottom: 2px dotted #002244;
+    border-left: 1px solid #002244;
+}
+
+th {
+    width: 64px;
+    height: 32px;
+
+    background: #6688aa;
+
+    border-bottom: 2px dotted #002244;
+    border-left: 1px solid #002244;
+}
+
