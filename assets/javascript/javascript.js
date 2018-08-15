@@ -17,36 +17,35 @@ var arrival = "";
 var departure = "";
 var frequency = "";
 
-firebase.database().ref().set({
-    name: name,
-    destination: destination,
-    arrival: arrival,
-    departure: departure,
-    frequency: frequency,
-});
-
-$("#sendForm").on("click", function(event){
-//     event.PreventDefault();
+$("#sendForm").on("click", function(event) {
+    event.PreventDefault();
     name = $("#nameEnter").val().trim();
     destination = $("#destEnter").val().trim();
     arrival = $("#arrivalEnter").val().trim();
     departure = $("#departEnter").val().trim();
     frequency = $("#freqEnter").val().trim();
+    console.log(this);
+    console.log(name);
+    console.log(destination);
+    console.log(arrival);
+    console.log(departure);
+    console.log(frequency);
 
-//     console.log(name);
+    firebase.database().ref().push({
+        name: name,
+        destination: destination,
+        arrival: arrival,
+        departure: departure,
+        frequency: frequency
+    });
 
-//     // fbDb.ref().push({
-//     //     name: name,
-//     //     destination: destination,
-//     //     arrival: arrival,
-//     //     departure: departure,
-//     //     frequency: frequency,
-//     // })
+    firebase.database().ref().on("child_added", function(childSnapshot){
+    console.log(childSnapshot.val());
+    }, function (errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+    });
 
-// });
-
-// fbDb.ref().on("child_added", function(childSs){
-//     console.log(childSs.val());
-//     $("#tbody").append("<tr><td>" + childSs.val().name + "</td><td>" + childSs.val().destination + "</td><td>" + childSs.val().arrival + "</td><td>" + childSs.val().departure + "</td><td>" + childSs.val().frequency + "</td></tr>");
 });
+
+//     $("#tbody").append("<tr><td>" + childSnapshot.val().name + "</td><td>" + childSnapshot.val().destination + "</td><td>" + childSnapshot.val().arrival + "</td><td>" + childSnapshot.val().departure + "</td><td>" + childSnapshot.val().frequency + "</td></tr>");
 

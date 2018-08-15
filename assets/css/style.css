@@ -1,17 +1,20 @@
 
 * {
     text-align: center;
+
     margin: 16px auto;
 }
 
 html {
     font-family: Arial, Helvetica, sans-serif;
+
     min-width: 100%;
     min-height: 100%;
 }
 
 header {
     width: 75%;
+
     background: #557799;
     border: 1px dashed #000256;
 
@@ -29,6 +32,7 @@ body {
 div {
     width: 75%;
     min-height: 32px;
+
     text-align: left;
 
     border: 1px dashed #000256;
@@ -54,6 +58,8 @@ label {
 #sched {
     width: 95%;
 
+    font-size: 1vw;
+
     margin: auto;
 }
 
@@ -69,18 +75,19 @@ label {
     text-align: center;
 }
 
-tr, td {
-    margin: auto;
-    height: 32px;
+th {
+    width: 64px;
+    height: 48px;
+
+    background: #6688aa;
+
     border-bottom: 2px dotted #002244;
     border-left: 1px solid #002244;
 }
 
-th {
-    width: 64px;
+tr, td {
+    margin: auto;
     height: 32px;
-
-    background: #6688aa;
 
     border-bottom: 2px dotted #002244;
     border-left: 1px solid #002244;
