@@ -30,7 +30,7 @@
     <header><h1>Train Bizarre</h1></header>
     <div id="wrapper">
         <form>
-            <h2 id="nextTrainTime">Train Choice</h2>
+            <h2>Enter a Train</h2>
             <div>
                 <input type="text" id="nameEnter" name="search">
                 <label for="nameLabel">Name</label>
@@ -48,12 +48,12 @@
                 <label for="departLabel">Departure Time</label>
             </div>
             <div id="submitButton">
-                <input type="button" id="sendForm" value="Update">
+                <input type="button" id="sendForm" value="Update Schedule">
             </div>
         </form>
         <div id="defaultTable">
             <h2>Schedule</h2>
-            <table id=sched>
+            <table>
                 <tr>
                     <th>Train Name</th>
                     <th>Destination</th>
@@ -61,7 +61,7 @@
                     <th>Departure</th>
                     <th>Frequency</th>
                 </tr>
-                <tbody>
+                <tbody id=sched>
                 </tbody>
             </table>
         </div>

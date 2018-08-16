@@ -28,54 +28,50 @@ $("#sendForm").on("click", function(event) {
     console.log("frequency : " + frequency);
     console.log("departure : " + departure);
 
-    // var frequency = frequency;
-
-    // var departure = departure;
-
+    // push back time 1 year
     var arrivalConvert = moment(departure, "HH:mm").subtract(1, "years");
-    console.log(moment(departure, "HH:mm").subtract(1, "years"));
+    console.log("arrivalConvert = " + moment(departure, "HH:mm").subtract(1, "years"));
 
+    // get & format current time
     var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    console.log("currentTime = " + moment(currentTime).format("hh:mm"));
 
+    // calculate time difference
     var arrivalCalc = moment().diff(moment(arrivalConvert), "minutes");
-    console.log(moment().diff(moment(arrivalConvert), "minutes"));
+    console.log("arrivalCalc = " + moment().diff(moment(arrivalConvert), "minutes"));
 
-    var tRemainder = arrivalCalc % frequency;
-    console.log(tRemainder);
+    // time remainder
+    var timeRem = arrivalCalc % frequency;
+    console.log("timeRem = " + (arrivalCalc % frequency));
 
-    var tMinutesWait = frequency - tRemainder;
-    console.log(tMinutesWait);
+    // minutes until arrival
+    var arrival = frequency - timeRem;
+    console.log("arrival = " + (frequency - timeRem));
 
-    var nextTrain = moment().add(tMinutesWait, "minutes");
-    console.log(nextTrain);
-
+    // push to firebase
     firebase.database().ref().push({
         name: name,
         destination: destination,
-        // arrival: arrival,
+        arrival: arrival,
         departure: departure,
         frequency: frequency
     });
-    $("#nextTrainTime").append(nextTrain);
 });
 
-    
-
+    // append schedule to table
     firebase.database().ref().on("child_added", function(snapshot){
         console.log(snapshot.val());
-        $("tbody").append("<tr><td>" 
+        $("#sched").append("<tr><td>" 
             + snapshot.val().name 
         + "</td><td>" 
             + snapshot.val().destination 
         + "</td><td>" 
-            + snapshot.val().arrival
+            + snapshot.val().arrival + " min(s)"
         + "</td><td>" 
             + snapshot.val().departure 
         + "</td><td>" 
             + snapshot.val().frequency 
         + "</td></tr>");
-        // return;
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
 });

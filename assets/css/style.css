@@ -47,7 +47,7 @@ div {
 }
 
 input {
-    width: 50%;
+    width: 32%;
     height: 32px;
 }
 
@@ -55,19 +55,24 @@ label {
     font-weight: bold;
 }
 
-#sched {
-    width: 95%;
+table {
+    width: 96%;
 
     font-size: 1vw;
 
     margin: auto;
 }
 
+#defaultTable {
+    padding: 64px 16px;
+}
+
 #sendForm {
-    width: 74px;
+    width: 16%;
 }
 
 #sendForm:hover {
+    cursor: pointer;
     background-color: #6688aa;
 }
 
@@ -76,7 +81,7 @@ label {
 }
 
 th {
-    width: 64px;
+    width: 20%;
     height: 48px;
 
     background: #6688aa;
@@ -93,3 +98,6 @@ tr, td {
     border-left: 1px solid #002244;
 }
 
+td {
+    font-size: 12px;
+}
