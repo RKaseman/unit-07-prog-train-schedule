@@ -16,7 +16,6 @@ var destination = "";
 var frequency = 0;
 var departure = "";
 var arrival = "";
-console.log(frequency);
 
 $("#sendForm").on("click", function(event) {
     event.preventDefault();
@@ -24,34 +23,57 @@ $("#sendForm").on("click", function(event) {
     destination = $("#destEnter").val().trim();
     frequency = $("#freqEnter").val().trim();
     departure = $("#departEnter").val().trim();
-    // arrival = $("#arrivalEnter").val().trim();
     console.log("name : " + name);
     console.log("destination : " + destination);
     console.log("frequency : " + frequency);
     console.log("departure : " + departure);
-    console.log("arrival : " + arrival);
+
+    // var frequency = frequency;
+
+    // var departure = departure;
+
+    var arrivalConvert = moment(departure, "HH:mm").subtract(1, "years");
+    console.log(moment(departure, "HH:mm").subtract(1, "years"));
+
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+    var arrivalCalc = moment().diff(moment(arrivalConvert), "minutes");
+    console.log(moment().diff(moment(arrivalConvert), "minutes"));
+
+    var tRemainder = arrivalCalc % frequency;
+    console.log(tRemainder);
+
+    var tMinutesWait = frequency - tRemainder;
+    console.log(tMinutesWait);
+
+    var nextTrain = moment().add(tMinutesWait, "minutes");
+    console.log(nextTrain);
 
     firebase.database().ref().push({
         name: name,
         destination: destination,
-        arrival: arrival,
+        // arrival: arrival,
         departure: departure,
         frequency: frequency
     });
+    $("#nextTrainTime").append(nextTrain);
 });
 
-    firebase.database().ref().on("child_added", function(childSnapshot){
-        console.log(childSnapshot.val());
+    
+
+    firebase.database().ref().on("child_added", function(snapshot){
+        console.log(snapshot.val());
         $("tbody").append("<tr><td>" 
-        + name 
+            + snapshot.val().name 
         + "</td><td>" 
-        + destination 
+            + snapshot.val().destination 
         + "</td><td>" 
-        // + arrival 
-        // + "</td><td>" 
-        + departure 
+            + snapshot.val().arrival
         + "</td><td>" 
-        + frequency 
+            + snapshot.val().departure 
+        + "</td><td>" 
+            + snapshot.val().frequency 
         + "</td></tr>");
         // return;
     }, function (errorObject) {
