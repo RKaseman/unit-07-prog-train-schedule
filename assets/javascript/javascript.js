@@ -13,33 +13,48 @@ firebase.initializeApp(config);
 
 var name = "";
 var destination = "";
+var frequency = 0;
 var departure = "";
-var frequency = "";
+var arrival = "";
+console.log(frequency);
 
 $("#sendForm").on("click", function(event) {
     event.preventDefault();
     name = $("#nameEnter").val().trim();
     destination = $("#destEnter").val().trim();
-    departure = $("#departEnter").val().trim();
     frequency = $("#freqEnter").val().trim();
+    departure = $("#departEnter").val().trim();
+    // arrival = $("#arrivalEnter").val().trim();
     console.log("name : " + name);
     console.log("destination : " + destination);
-    console.log("departure : " + departure);
     console.log("frequency : " + frequency);
+    console.log("departure : " + departure);
+    console.log("arrival : " + arrival);
 
     firebase.database().ref().push({
         name: name,
         destination: destination,
+        arrival: arrival,
         departure: departure,
         frequency: frequency
     });
+});
 
     firebase.database().ref().on("child_added", function(childSnapshot){
         console.log(childSnapshot.val());
-        $("tbody").append("<tr><td>" + childSnapshot.val().name + "</td><td>" + childSnapshot.val().destination + "</td><td>" + childSnapshot.val().departure + "</td><td>" + childSnapshot.val().frequency + "</td></tr>");
-        console.log("this : " + this);
+        $("tbody").append("<tr><td>" 
+        + name 
+        + "</td><td>" 
+        + destination 
+        + "</td><td>" 
+        // + arrival 
+        // + "</td><td>" 
+        + departure 
+        + "</td><td>" 
+        + frequency 
+        + "</td></tr>");
+        // return;
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
-    });
 });
 

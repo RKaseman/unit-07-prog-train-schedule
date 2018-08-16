@@ -28,20 +28,24 @@
             <h2>Train Choice</h2>
             <div>
                 <input type="text" id="nameEnter" name="search" value="">
-                <label for="nameEnter">Name</label>
+                <label for="nameLabel">Name</label>
             </div>
             <div>
                 <input type="text" id="destEnter" name="search" value="">
-                <label for="destEnter">Destination</label>
-            </div>
-            <div>
-                <input type="time" id="departEnter" name="search" value="">
-                <label for="departEnter">Departure Time</label>
+                <label for="destLabel">Destination</label>
             </div>
             <div>
                 <input type="number" id="freqEnter" name="search" value="">
-                <label for="freqEnter">Frequency</label>
+                <label for="freqLabel">Frequency (in minutes)</label>
             </div>
+            <div>
+                <input type="time" id="departEnter" name="search" value="">
+                <label for="departLabel">Departure Time</label>
+            </div>
+            <!-- <div>
+                <input type="time" id="arrivalEnter" name="search" value="">
+                <label for="arrivalEnter">Arrival Time</label>
+            </div> -->
             <div id="submitButton">
                 <input type="submit" id="sendForm" value="Update">
             </div>
@@ -52,11 +56,13 @@
                 <tr>
                     <th>Train Name</th>
                     <th>Destination</th>
+                    <th>Arrival</th>
                     <th>Departure</th>
                     <th>Frequency</th>
                 </tr>
                 <tbody>
                     <!-- <tr>
+                        <td>(entry)</td>
                         <td>(entry)</td>
                         <td>(entry)</td>
                         <td>(entry)</td>
