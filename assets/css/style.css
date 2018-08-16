@@ -47,7 +47,7 @@ div {
 }
 
 input {
-    width: 32%;
+    width: 40%;
     height: 32px;
 }
 
@@ -68,7 +68,8 @@ table {
 }
 
 #sendForm {
-    width: 16%;
+    min-width: 136px;
+    max-width: 144px;
 }
 
 #sendForm:hover {
@@ -100,4 +101,5 @@ tr, td {
 
 td {
     font-size: 12px;
+    font-weight: bold;
 }
