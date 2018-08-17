@@ -56,21 +56,24 @@ $("#sendForm").on("click", function(event) {
         departure: departure,
         frequency: frequency
     });
+
+    $("form")[0].reset();
+
 });
 
-    // append schedule to table
-    firebase.database().ref().on("child_added", function(snapshot){
-        console.log(snapshot.val());
-        $("#sched").append("<tr><td>" 
-            + snapshot.val().name 
+// append schedule to table
+firebase.database().ref().on("child_added", function(snapshot){
+    console.log(snapshot.val());
+    $("#sched").append("<tr><td>" 
+        + snapshot.val().name 
         + "</td><td>" 
-            + snapshot.val().destination 
+        + snapshot.val().destination 
         + "</td><td>" 
-            + snapshot.val().arrival + " min(s)"
+        + snapshot.val().arrival + " min(s)"
         + "</td><td>" 
-            + snapshot.val().departure 
+        + snapshot.val().departure 
         + "</td><td>" 
-            + snapshot.val().frequency 
+        + snapshot.val().frequency 
         + "</td></tr>");
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);

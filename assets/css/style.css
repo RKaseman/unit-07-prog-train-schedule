@@ -64,7 +64,7 @@ table {
 }
 
 #defaultTable {
-    padding: 64px 16px;
+    padding: 32px 16px 64px 16px;
 }
 
 #sendForm {
@@ -103,3 +103,65 @@ td {
     font-size: 12px;
     font-weight: bold;
 }
+
+/* mediaQueries */
+@media only screen and (max-width: 980px) {
+
+    h2 {
+        font-size: 3.0vw;
+    }
+
+    h3 {
+        font-size: 1.6vw;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    h2 {
+        font-size: 3.0vw;
+    }
+
+    h3 {
+        font-size: 1.8vw;
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+
+    h2 {
+        font-size: 3.0vw;
+    }
+
+    h3 {
+        font-size: 1.8vw;
+    }
+
+    td {
+        font-size: 1.5vw;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    h2 {
+        font-size: 3.0vw;
+    }
+
+    h3 {
+        font-size: 1.8vw;
+    }
+
+    label {
+        font-size: 2.5vw;
+    }
+
+    td {
+        font-size: 1.5vw;
+    }
+
+}
+
