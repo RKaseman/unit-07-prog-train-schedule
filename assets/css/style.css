@@ -1,44 +1,51 @@
 
 * {
+    box-sizing: border-box;
+    background-color: #1a1a1a;
     text-align: center;
-
-    margin: 16px auto;
+    color: #aaeeee;
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
-
-    min-width: 100%;
-    min-height: 100%;
-}
-
-header {
-    width: 75%;
-
-    background: #557799;
-    border: 1px dashed #000256;
-
-    padding: 16px;
-}
-
-h1 {
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-family: 'Acme', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 100;
 }
 
 body {
-    background: #bbddff;
+    width: 64%;
+    margin: 16px auto;
+}
+
+header {
+    background-color: #557799;
+    border: 1px dashed #000256;
+    margin: 8px auto;
+    padding: 16px;
+}
+
+h1, h2 {
+    font-family: 'Spicy Rice', cursive;
+}
+
+h1 {
+    font-size: 2.5em;
+    line-height: 64px;
 }
 
 div {
-    width: 75%;
-    min-height: 32px;
-
     text-align: left;
-
     border: 1px dashed #000256;
-
-    padding: 2px 16px;
+    padding: 8px 16px;
 }
+
+#divCanvas {
+    text-align: center;
+}
+
+/* #mycanvas {
+    margin: 64px auto;
+} */
 
 #wrapper {
     background: #88aacc;
